@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Қазақ тілі 5 — тетрадь</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf9f4;
+    --paper-raised: #ffffff;
+    --rule: #aecdea;
+    --rule-soft: #d7e6f5;
+    --margin: #d3564d;
+    --ink: #24304a;
+    --ink-soft: #647089;
+    --ink-faint: #97a2b8;
+    --shadow: rgba(36, 48, 74, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1b2431;
+      --paper-raised: #232f3f;
+      --rule: #3c4d68;
+      --rule-soft: #2a374a;
+      --margin: #e08078;
+      --ink: #eceff5;
+      --ink-soft: #a7b2c8;
+      --ink-faint: #6d788e;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1b2431;
+    --paper-raised: #232f3f;
+    --rule: #3c4d68;
+    --rule-soft: #2a374a;
+    --margin: #e08078;
+    --ink: #eceff5;
+    --ink-soft: #a7b2c8;
+    --ink-faint: #6d788e;
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'PT Sans', Arial, sans-serif;
+    line-height: 1.5;
+  }
+  h1, .hand { font-family: 'Caveat', cursive; font-weight: 700; text-wrap: balance; }
+  .sheet {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 26px 20px 60px 44px;
+    position: relative;
+    background-image: repeating-linear-gradient(to bottom, transparent, transparent 37px, var(--rule-soft) 38px);
+    background-position: 0 130px;
+  }
+  .sheet::before {
+    content: "";
+    position: absolute; top: 0; bottom: 0; left: 26px;
+    width: 2px; background: var(--margin); opacity: 0.75;
+  }
+  h1 { font-size: 40px; margin: 0 0 2px; }
+  .subtitle { font-size: 15px; color: var(--ink-soft); margin: 0 0 24px; }
+  .unit { margin-bottom: 26px; }
+  .unit h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--margin);
+    margin: 0 0 4px;
+  }
+  .unit .unit-note { font-size: 13px; color: var(--ink-faint); margin: 0 0 10px; }
+  ul.lessons { list-style: none; margin: 0; padding: 0; }
+  ul.lessons li { margin-bottom: 8px; }
+  a.lesson {
+    display: block;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 1px 2px 0 var(--shadow);
+    font-size: 15px;
+  }
+  a.lesson:hover { border-color: var(--margin); }
+  a.lesson .kk { font-weight: 700; }
+  a.lesson .page { color: var(--ink-faint); font-size: 13px; }
+  .print-link { font-size: 12px; margin-left: 8px; }
+  .todo {
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  a:focus-visible { outline: 2px solid var(--margin); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>Қазақ тілі 5</h1>
+  <p class="subtitle">«Бәйшешек», часть 1 — тетрадь для отработки уроков. Открывай нужный урок по ссылке ниже.</p>
+
+  <div class="unit">
+    <h2>Блок 1 — Отбасындағы дәстүрлер мен мерекелер</h2>
+    <p class="unit-note">Традиции и праздники в семье (стр. 4&ndash;25) &middot; сквозная грамматика блока: <b>тәуелдік жалғауы</b> (притяжательные суффиксы)</p>
+    <ul class="lessons">
+      <li>
+        <a class="lesson" href="blok1/urok1_2.html">
+          <span class="kk">Урок 1&ndash;2 — Қазақ отбасының дәстүрлері</span><br>
+          <span class="page">стр. 4&ndash;8 &middot; тәуелдік жалғауы (жекеше түрі)</span>
+        </a>
+        <a class="print-link" href="print/blok1/urok1_2.html">[печать карточек]</a>
+      </li>
+      <li>
+        <a class="lesson" href="blok1/urok3_4.html">
+          <span class="kk">Урок 3&ndash;4 — Атам төрде отырады</span><br>
+          <span class="page">стр. 9&ndash;11 &middot; жалпы есім және жалқы есім</span>
+        </a>
+        <a class="print-link" href="print/blok1/urok3_4.html">[печать карточек]</a>
+      </li>
+      <li>
+        <a class="lesson" href="blok1/urok5_6.html">
+          <span class="kk">Урок 5&ndash;6 — Табалдырықты баспа!</span><br>
+          <span class="page">стр. 12&ndash;14 &middot; закрепление (тәуелдік жалғауы + жалпы/жалқы есім)</span>
+        </a>
+        <a class="print-link" href="print/blok1/urok5_6.html">[печать карточек]</a>
+      </li>
+      <li>
+        <a class="lesson" href="blok1/urok7_8.html">
+          <span class="kk">Урок 7&ndash;8 — «Тоқта, ботам!..»</span><br>
+          <span class="page">стр. 15&ndash;18 &middot; закрепление (жалпы есім)</span>
+        </a>
+        <a class="print-link" href="print/blok1/urok7_8.html">[печать карточек]</a>
+      </li>
+      <li>
+        <a class="lesson" href="blok1/urok9_10.html">
+          <span class="kk">Урок 9&ndash;10 — Атам бата береді</span><br>
+          <span class="page">стр. 19&ndash;21 &middot; закрепление (тәуелдік жалғауы)</span>
+        </a>
+        <a class="print-link" href="print/blok1/urok9_10.html">[печать карточек]</a>
+      </li>
+      <li>
+        <a class="lesson" href="blok1/urok11_12.html">
+          <span class="kk">Урок 11&ndash;12 — Өкеліңіз, көмектесейін!</span><br>
+          <span class="page">стр. 22&ndash;23 &middot; тәуелдік жалғауы (көпше түрі)</span>
+        </a>
+        <a class="print-link" href="print/blok1/urok11_12.html">[печать карточек]</a>
+      </li>
+    </ul>
+    <p class="todo">Повторение блока 1 (стр. 24&ndash;25) — устный формат в учебнике (полилог, «Ой-бәйге», стихотворение наизусть), отдельного тренажёра для него не будет.</p>
+  </div>
+
+  <div class="unit">
+    <h2>Блоки 2&ndash;6</h2>
+    <p class="todo">Пока не сделаны — ждут отдельного подтверждения, как и для остальных предметов.</p>
+  </div>
+</div>
+</body>
+</html>
