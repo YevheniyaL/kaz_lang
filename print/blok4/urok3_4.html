@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Печать карточек — Көшпелілер — жауынгер халық</title>
+<style>
+  body { font-family: 'PT Sans', Arial, sans-serif; color: #222; max-width: 800px; margin: 20px auto; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .instructions { background: #f2f5fa; border: 1px solid #c7d3e3; border-radius: 6px; padding: 14px 18px; font-size: 14px; line-height: 1.6; }
+  .instructions b { color: #1a3a66; }
+  .page-label { font-size: 13px; color: #888; margin: 26px 0 6px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 45mm; border: 1px solid #333; page-break-before: always; }
+  .cell { border: 1px dashed #999; display: flex; align-items: center; justify-content: center; font-size: 20px; text-align: center; padding: 6px; }
+  .cell.kk { font-weight: bold; }
+  @media print { .instructions { display: block; } .page-label { display: none; } }
+</style>
+</head>
+<body>
+
+<h1>Карточки «Көшпелілер — жауынгер халық» — печать для вырезания (стр. 79-82)</h1>
+<div class="instructions">
+  <p><b>Если принтер печатает с двух сторон (дуплекс):</b> в диалоге печати
+  включите "Печать на двух сторонах" / "Two-sided" и переплёт по
+  <b>длинному краю</b>. Тогда слово и перевод сразу окажутся на разных
+  сторонах одной карточки. Разрежьте лист по пунктирным линиям — получится
+  8 двусторонних карточек.</p>
+  <p><b>Если принтер печатает только с одной стороны:</b> напечатайте
+  первый лист (казахские слова), затем переверните эту же стопку листов и
+  вставьте обратно в лоток, чтобы напечатать второй лист (переводы) на
+  обратной стороне. Направление переворота зависит от принтера — лучше
+  сначала попробовать на одном листе и проверить, совпали ли слово и
+  перевод на одной карточке, прежде чем печатать весь тираж.</p>
+</div>
+
+<p class="page-label">Лист 1 — казахские слова (лицевая сторона)</p>
+<div class="grid">
+  <div class="cell kk">данышпан</div>
+  <div class="cell kk">аттылы</div>
+  <div class="cell kk">садақ атқыштар</div>
+  <div class="cell kk">баспана</div>
+  <div class="cell kk">жауынгер</div>
+  <div class="cell kk">ел</div>
+  <div class="cell kk">батыр</div>
+  <div class="cell kk">сарбаз</div>
+</div>
+
+<p class="page-label">Лист 2 — переводы (обратная сторона, тот же порядок ячеек)</p>
+<div class="grid">
+  <div class="cell">мудрец</div>
+  <div class="cell">конный, всадник</div>
+  <div class="cell">лучники</div>
+  <div class="cell">жилище</div>
+  <div class="cell">воин</div>
+  <div class="cell">народ, страна</div>
+  <div class="cell">богатырь</div>
+  <div class="cell">воин</div>
+</div>
+
+</body>
+</html>
