@@ -9,7 +9,8 @@
   .instructions { background: #f2f5fa; border: 1px solid #c7d3e3; border-radius: 6px; padding: 14px 18px; font-size: 14px; line-height: 1.6; }
   .instructions b { color: #1a3a66; }
   .page-label { font-size: 13px; color: #888; margin: 26px 0 6px; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 26mm; border: 1px solid #333; page-break-before: always; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 26mm; border: 1px solid #333; }
+  .grid.p2 { page-break-before: always; }
   .cell { border: 1px dashed #999; display: flex; align-items: center; justify-content: center; font-size: 15px; text-align: center; padding: 4px; }
   .cell.kk { font-weight: bold; }
   @media print { .instructions { display: none; } .page-label { display: none; } }
@@ -46,7 +47,7 @@
 </div>
 
 <p class="page-label">Лист 2 — переводы (обратная сторона, ячейки в каждом ряду зеркальны — для совпадения при печати)</p>
-<div class="grid">
+<div class="grid p2">
   <div class="cell">хвастливость</div>
   <div class="cell">ложь</div>
   <div class="cell">сплетня</div>
