@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Казахский · блок 4 ур. 5–6 · слова</title>
+<title>Казахский · блок 2 ур. 7–8 · доп. слова от учителя</title>
 <link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🌷</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +65,6 @@
   .tab:nth-child(1) { transform: rotate(-1.2deg); }
   .tab:nth-child(2) { transform: rotate(0.8deg); }
   .tab:nth-child(3) { transform: rotate(-0.6deg); }
-  .tab:nth-child(4) { transform: rotate(1deg); }
   .tab[aria-selected="true"] { color: var(--paper); background: var(--margin); border-color: var(--margin); }
   .tab:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--margin); outline-offset: 2px; }
   section.page { display: none; }
@@ -121,18 +120,6 @@
   .fib-mark { font-family: 'Caveat', cursive; font-size: 20px; font-weight: 700; min-width: 90px; }
   .fib-mark.good-mark { color: var(--good); }
   .fib-mark.bad-mark { color: var(--bad); }
-  .pool { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; min-height: 42px; }
-  .pool .chip { padding: 7px 12px; }
-  .pool .chip.picked { border-color: var(--margin); box-shadow: 0 0 0 2px var(--margin-soft) inset; }
-  .buckets { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .bucket { border: 1px dashed var(--rule); border-radius: 8px; padding: 10px; min-height: 120px; }
-  .bucket h3 { font-family: 'Caveat', cursive; font-size: 20px; margin: 0 0 8px; color: var(--ink-soft); }
-  .bucket-btn { width: 100%; font-family: 'PT Sans', sans-serif; font-size: 13px; background: var(--paper-raised);
-    border: 1px solid var(--rule); border-radius: 5px; padding: 6px; margin-bottom: 8px; cursor: pointer; }
-  .bucket-btn:disabled { opacity: 0.4; cursor: default; }
-  .bucket-list { display: flex; flex-wrap: wrap; gap: 6px; }
-  .bucket-list .word { font-size: 13px; background: var(--good-bg); color: var(--good); border: 1px solid var(--good);
-    border-radius: 10px; padding: 3px 9px; }
   .reset-line { margin-top: 18px; }
   .reset-btn { font-family: 'Caveat', cursive; font-size: 16px; background: none; border: none; color: var(--ink-faint);
     text-decoration: underline; cursor: pointer; padding: 0; }
@@ -150,26 +137,25 @@
 <div class="sheet">
   <header class="page">
     <a class="back-link" href="../index.html">&larr; ко всем урокам</a>
-    <h1>Тұмар (Томирис) туралы аңыз</h1>
-    <p class="subtitle">Блок 4 &middot; Ежелгі көшпелілер мәдениеті &middot; Урок 5&ndash;6 (стр. 83&ndash;85)</p>
-    <span class="skill">Закрепление: <b>есімдік</b> &mdash; жіктеу/сілтеу/сұрау есімдіктер жаңа мәтінде</span>
+    <h1>Мұғалімнен жаңа сөздер</h1>
+    <p class="subtitle">Блок 2 &middot; Урок 7&ndash;8 «Қожа – әдепті бала» &middot; дополнительные слова от учительницы (не из учебника)</p>
+    <span class="skill">Тема: <b>кейіпкер, мінез</b> &mdash; повесть «Менің атым — Қожа» и характер героя</span>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Упражнения">
     <button class="tab" role="tab" aria-selected="true" data-target="cards">Карточки</button>
     <button class="tab" role="tab" aria-selected="false" data-target="match">Найди пару</button>
     <button class="tab" role="tab" aria-selected="false" data-target="fib">Впиши слово</button>
-    <button class="tab" role="tab" aria-selected="false" data-target="gram">Грамматика</button>
   </nav>
 
   <section class="page active" id="cards">
     <p class="lead">Нажми на карточку — она перевернётся. Отметь, знаешь слово или ещё учишь.</p>
-    <a class="print-link" href="../print/blok4/urok5_6.html" target="_blank" rel="noopener">Распечатать карточки этого урока →</a>
+    <a class="print-link" href="../print/blok2/urok7_8_dop.html" target="_blank" rel="noopener">Распечатать карточки этого урока →</a>
     <div class="cards" id="cardsGrid"></div>
   </section>
   <section class="page" id="match">
     <p class="lead">Нажми на казахское слово, потом на его перевод. Совпало — карточка закрепится.</p>
-    <p class="counter" id="matchCounter">Пары найдены: 0 из 8</p>
+    <p class="counter" id="matchCounter">Пары найдены: 0 из 20</p>
     <div class="match-grid">
       <div class="match-col" id="matchKk"></div>
       <div class="match-col" id="matchRu"></div>
@@ -179,52 +165,59 @@
   <section class="page" id="fib">
     <p class="lead">Впиши пропущенное слово по-казахски. Подсказка — перевод в скобках.<br>
       Буквы, которых нет на клавиатуре — ә ғ қ ң ө ұ ү һ і — появятся кнопками под полем, как только в нём окажется курсор. Буква встаёт туда, где курсор.</p>
-    <p class="counter" id="fibCounter">Верно: 0 из 8</p>
+    <p class="counter" id="fibCounter">Верно: 0 из 20</p>
     <div id="fibList"></div>
   </section>
-  <section class="page" id="gram">
-    <p class="lead">Нажми на казахское местоимение, потом на его перевод. Это сұрау есімдігі — вопросительные местоимения.</p>
-    <p class="counter" id="gramCounter2">Пары найдены: 0 из 6</p>
-    <div class="match-grid">
-      <div class="match-col" id="gramKk"></div>
-      <div class="match-col" id="gramRu"></div>
-    </div>
-    <div class="reset-line"><button class="reset-btn" id="gramReset2">начать заново</button></div>
-  </section>
-  <footer class="page">«Бәйшешек» 5 класс · Блок 4, Урок 5-6 · домашняя тетрадь</footer>
+  <footer class="page">Қазақ тілі 5 · Слова от учителя · Блок 2 · Урок 7-8 · домашняя тетрадь</footer>
 </div>
 <script>
 (function () {
   var WORDS = [
-    { kk: "патшайым", ru: "царица" },
-    { kk: "тәрбиелейді", ru: "воспитывает" },
-    { kk: "басқыншылық", ru: "агрессия, нашествие" },
-    { kk: "қашып құтылған", ru: "спасшийся бегством" },
-    { kk: "елші", ru: "посол" },
-    { kk: "патша", ru: "царь" },
-    { kk: "әскер", ru: "войско" },
-    { kk: "шөбересі", ru: "правнук, правнучка" }
+    { kk: "алғаш рет", ru: "первый раз" },
+    { kk: "жарық көрді", ru: "опубликовался" },
+    { kk: "аударылған", ru: "переведён" },
+    { kk: "бойынша", ru: "по" },
+    { kk: "көркем", ru: "художественный" },
+    { kk: "шығарды", ru: "выпустил" },
+    { kk: "басты", ru: "главный" },
+    { kk: "кейіпкер", ru: "герой, персонаж" },
+    { kk: "толық аты", ru: "полное имя" },
+    { kk: "сүйкімді", ru: "милый" },
+    { kk: "зор", ru: "огромный" },
+    { kk: "бақыт", ru: "счастье" },
+    { kk: "алғыр", ru: "хваткий" },
+    { kk: "әділ", ru: "справедливый" },
+    { kk: "әдепті", ru: "воспитанный" },
+    { kk: "сонымен қатар", ru: "а также" },
+    { kk: "сотқар", ru: "хулиган, драчун" },
+    { kk: "тентек", ru: "шалун, озорник" },
+    { kk: "бұзық", ru: "хулиган" },
+    { kk: "шыдамсыз", ru: "нетерпеливый" }
   ];
   var SENTENCES = [
-    { text: "Ол — ______.", hint: "царица", answer: "патшайым" },
-    { text: "Ана баланы ______.", hint: "воспитывает", answer: "тәрбиелейді" },
-    { text: "Бұл — ______.", hint: "агрессия, нашествие", answer: "басқыншылық" },
-    { text: "Ол — ______ жауынгер.", hint: "спасшийся бегством", answer: "қашып құтылған" },
-    { text: "Ол — ______.", hint: "посол", answer: "елші" },
-    { text: "Ол — ______.", hint: "царь", answer: "патша" },
-    { text: "Бұл — үлкен ______.", hint: "войско", answer: "әскер" },
-    { text: "Ол — Тұмардың ______.", hint: "правнук, правнучка", answer: "шөбересі" }
-  ];
-  var GRAM = [
-    { kk: "кім?", ru: "кто?" },
-    { kk: "не?", ru: "что?" },
-    { kk: "қандай?", ru: "какой?" },
-    { kk: "қай?", ru: "который?" },
-    { kk: "қашан?", ru: "когда?" },
-    { kk: "қайсы?", ru: "который из них?" }
+    { text: "Бұл повесть ______ орыс тілінде жарық көрді.", hint: "первый раз", answer: "алғаш рет" },
+    { text: "Бұл повесть алғаш рет орыс тілінде ______.", hint: "опубликовался", answer: "жарық көрді" },
+    { text: "Повесть 30 тілге ______.", hint: "переведён", answer: "аударылған" },
+    { text: "Осы повесть ______ көркем фильм шығарды.", hint: "по", answer: "бойынша" },
+    { text: "Киностудия осы повесть бойынша ______ фильм шығарды.", hint: "художественный", answer: "көркем" },
+    { text: "Киностудия көркем фильм ______.", hint: "выпустил", answer: "шығарды" },
+    { text: "Повестің ______ кейіпкері – Қожа.", hint: "главный", answer: "басты" },
+    { text: "Повестің басты ______ – Қожа.", hint: "герой, персонаж", answer: "кейіпкер" },
+    { text: "______ – Қожаберген.", hint: "полное имя", answer: "толық аты" },
+    { text: "Адамның атының ______ болуы – зор бақыт.", hint: "милый", answer: "сүйкімді" },
+    { text: "Адамның атының сүйкімді болуы – ______ бақыт.", hint: "огромный", answer: "зор" },
+    { text: "Адамның атының сүйкімді болуы – зор ______.", hint: "счастье", answer: "бақыт" },
+    { text: "Қожа – жақсы, ______, ақылды бала.", hint: "хваткий", answer: "алғыр" },
+    { text: "Қожа – мейірімді, ______, әдепті бала.", hint: "справедливый", answer: "әділ" },
+    { text: "Қожа – мейірімді, әділ, ______ бала.", hint: "воспитанный", answer: "әдепті" },
+    { text: "______ ол сотқар, тентек кейіпкер.", hint: "а также", answer: "сонымен қатар" },
+    { text: "Ол ______, тентек, бұзық кейіпкер.", hint: "хулиган, драчун", answer: "сотқар" },
+    { text: "Ол сотқар, ______, бұзық кейіпкер.", hint: "шалун, озорник", answer: "тентек" },
+    { text: "Ол сотқар, тентек, ______ кейіпкер.", hint: "хулиган", answer: "бұзық" },
+    { text: "Ол бұзық, ______ кейіпкер.", hint: "нетерпеливый", answer: "шыдамсыз" }
   ];
 
-  var LS_KEY = "edu5_kz_b4_l3";
+  var LS_KEY = "edu5_kz_ot_uchitelya_b2_u7_8";
   function loadState() { try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch (e) { return {}; } }
   function saveState(s) { try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (e) {} }
   var state = loadState();
@@ -430,59 +423,6 @@
     fibList.appendChild(item);
   });
   function updateFibCounter() { fibCounter.textContent = "Верно: " + fibCorrectCount + " из " + FTOTAL; }
-
-
-  /* 4. Grammar (matching) */
-  var gramKkCol = document.getElementById("gramKk");
-  var gramRuCol = document.getElementById("gramRu");
-  var gramCounter2 = document.getElementById("gramCounter2");
-  var gmatched = 0, gSelectedKk = null, gSelectedRu = null, gLock = false;
-  var GMTOTAL = GRAM.length;
-
-  function buildGramMatch() {
-    gramKkCol.innerHTML = ""; gramRuCol.innerHTML = "";
-    gmatched = 0; gSelectedKk = null; gSelectedRu = null; gLock = false;
-    gramCounter2.textContent = "Пары найдены: 0 из " + GMTOTAL;
-    shuffled(GRAM).forEach(function (w) {
-      var b = document.createElement("button");
-      b.className = "chip"; b.textContent = w.kk; b.dataset.kk = w.kk; b.type = "button";
-      b.addEventListener("click", function () { pickGram(b, "kk", w.kk); });
-      gramKkCol.appendChild(b);
-    });
-    shuffled(GRAM).forEach(function (w) {
-      var b = document.createElement("button");
-      b.className = "chip"; b.textContent = w.ru; b.dataset.kk = w.kk; b.type = "button";
-      b.addEventListener("click", function () { pickGram(b, "ru", w.kk); });
-      gramRuCol.appendChild(b);
-    });
-  }
-  function pickGram(el, side, kk) {
-    if (gLock || el.classList.contains("matched")) return;
-    if (side === "kk") {
-      if (gSelectedKk) gSelectedKk.el.classList.remove("selected");
-      gSelectedKk = { el: el, kk: kk }; el.classList.add("selected");
-    } else {
-      if (gSelectedRu) gSelectedRu.el.classList.remove("selected");
-      gSelectedRu = { el: el, kk: kk }; el.classList.add("selected");
-    }
-    if (gSelectedKk && gSelectedRu) {
-      gLock = true;
-      if (gSelectedKk.kk === gSelectedRu.kk) {
-        gSelectedKk.el.classList.remove("selected"); gSelectedRu.el.classList.remove("selected");
-        gSelectedKk.el.classList.add("matched"); gSelectedRu.el.classList.add("matched");
-        gmatched++; gramCounter2.textContent = "Пары найдены: " + gmatched + " из " + GMTOTAL;
-        gSelectedKk = null; gSelectedRu = null; gLock = false;
-      } else {
-        gSelectedKk.el.classList.add("wrong"); gSelectedRu.el.classList.add("wrong");
-        setTimeout(function () {
-          gSelectedKk.el.classList.remove("selected", "wrong"); gSelectedRu.el.classList.remove("selected", "wrong");
-          gSelectedKk = null; gSelectedRu = null; gLock = false;
-        }, 500);
-      }
-    }
-  }
-  buildGramMatch();
-  document.getElementById("gramReset2").addEventListener("click", buildGramMatch);
 
 })();
 </script>

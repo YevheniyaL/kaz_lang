@@ -106,6 +106,15 @@
   .fib-row input[type="text"]:focus { border-bottom-color: var(--margin); }
   .fib-row input.correct { border-bottom-color: var(--good); color: var(--good); }
   .fib-row input.incorrect { border-bottom-color: var(--bad); color: var(--bad); }
+  .kk-keys { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 0; }
+  .kk-keys[hidden] { display: none; }
+  .kk-key { font-family: 'PT Sans', sans-serif; font-size: 17px; line-height: 1;
+    min-width: 34px; min-height: 34px; padding: 6px 4px; cursor: pointer;
+    background: var(--paper-raised); color: var(--ink); border: 1px solid var(--rule);
+    border-bottom-width: 2px; border-radius: 6px; box-shadow: 1px 1px 0 var(--shadow); }
+  .kk-key:hover { border-color: var(--margin); color: var(--margin); }
+  .kk-key:active { transform: translateY(1px); box-shadow: none; }
+  .fib-mark.near-mark { color: var(--mark); }
   .check-btn { font-family: 'PT Sans', sans-serif; font-size: 13px; background: var(--ink); color: var(--paper);
     border: none; border-radius: 5px; padding: 6px 12px; cursor: pointer; }
   .check-btn:hover { opacity: 0.88; }
@@ -168,7 +177,8 @@
     <div class="reset-line"><button class="reset-btn" id="matchReset">начать заново</button></div>
   </section>
   <section class="page" id="fib">
-    <p class="lead">Впиши пропущенное слово по-казахски. Подсказка — перевод в скобках.</p>
+    <p class="lead">Впиши пропущенное слово по-казахски. Подсказка — перевод в скобках.<br>
+      Буквы, которых нет на клавиатуре — ә ғ қ ң ө ұ ү һ і — появятся кнопками под полем, как только в нём окажется курсор. Буква встаёт туда, где курсор.</p>
     <p class="counter" id="fibCounter">Верно: 0 из 10</p>
     <div id="fibList"></div>
   </section>
@@ -338,6 +348,25 @@
   document.getElementById("matchReset").addEventListener("click", buildMatch);
 
   /* 3. Fill in the blank (vocab) */
+  /* девять букв, которых нет в русской раскладке */
+  var KK_LETTERS = ["ә", "ғ", "қ", "ң", "ө", "ұ", "ү", "һ", "і"];
+  var KK_SET = {};
+  KK_LETTERS.forEach(function (c) { KK_SET[c] = true; });
+  /* Ошибка только в казахских буквах? Сравниваем позициями, а не по карте
+     замен: тогда годится любая неверная буква на месте казахской — русская (к вместо қ),
+     другая казахская (ғ вместо қ), ы вместо і или латинская i, похожая на і.
+     Возвращает список букв, в которых промах, или null. */
+  function nearMiss(val, answer) {
+    if (val.length !== answer.length) { return null; }
+    var wrong = [];
+    for (var i = 0; i < answer.length; i++) {
+      if (val.charAt(i) === answer.charAt(i)) { continue; }
+      if (!KK_SET[answer.charAt(i)]) { return null; }
+      if (wrong.indexOf(answer.charAt(i)) === -1) { wrong.push(answer.charAt(i)); }
+    }
+    return wrong.length ? wrong : null;
+  }
+
   var fibList = document.getElementById("fibList");
   var fibCounter = document.getElementById("fibCounter");
   var fibCorrectCount = 0;
@@ -353,19 +382,48 @@
         '<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false">' +
         '<button class="check-btn" type="button">Проверить</button>' +
         '<span class="fib-mark"></span>' +
-      '</div>';
+      '</div>' +
+      '<div class="kk-keys" hidden></div>';
     var input = item.querySelector("input");
     var btn = item.querySelector(".check-btn");
     var mark = item.querySelector(".fib-mark");
+    var keys = item.querySelector(".kk-keys");
     var checkedRight = false;
+
+    /* ряд казахских букв: печатаем с клавиатуры, эти девять жмём на экране */
+    KK_LETTERS.forEach(function (ch) {
+      var k = document.createElement("button");
+      k.className = "kk-key"; k.type = "button"; k.textContent = ch;
+      k.setAttribute("aria-label", "вставить букву " + ch);
+      /* без этого поле теряет фокус и курсор прыгает в конец строки */
+      k.addEventListener("mousedown", function (e) { e.preventDefault(); });
+      k.addEventListener("click", function () {
+        var i = input.selectionStart, j = input.selectionEnd;
+        if (i === null || i === undefined) { i = j = input.value.length; }
+        input.value = input.value.slice(0, i) + ch + input.value.slice(j);
+        input.selectionStart = input.selectionEnd = i + ch.length;
+        input.focus();
+      });
+      keys.appendChild(k);
+    });
+    input.addEventListener("focus", function () { keys.hidden = false; });
+    input.addEventListener("blur", function () { keys.hidden = true; });
+
     function check() {
-      var val = input.value.trim().toLowerCase();
-      var ok = val === s.answer.toLowerCase();
+      var val = input.value.trim().toLowerCase().replace(/\s+/g, " ");
+      var answer = s.answer.toLowerCase();
+      var ok = val === answer;
+      var wrongLetters = ok || !val.length ? null : nearMiss(val, answer);
+      var near = !!wrongLetters;
       input.classList.toggle("correct", ok);
-      input.classList.toggle("incorrect", val.length > 0 && !ok);
+      input.classList.toggle("incorrect", val.length > 0 && !ok && !near);
       if (ok) {
         mark.textContent = "верно!"; mark.className = "fib-mark good-mark";
         if (!checkedRight) { fibCorrectCount++; checkedRight = true; updateFibCounter(); }
+      } else if (near) {
+        mark.textContent = "почти! проверь буквы: " + wrongLetters.join(", ");
+        mark.className = "fib-mark near-mark";
+        if (checkedRight) { fibCorrectCount--; checkedRight = false; updateFibCounter(); }
       } else {
         mark.textContent = "верный ответ: " + s.answer; mark.className = "fib-mark bad-mark";
         if (checkedRight) { fibCorrectCount--; checkedRight = false; updateFibCounter(); }
@@ -394,19 +452,48 @@
         '<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false">' +
         '<button class="check-btn" type="button">Проверить</button>' +
         '<span class="fib-mark"></span>' +
-      '</div>';
+      '</div>' +
+      '<div class="kk-keys" hidden></div>';
     var input = item.querySelector("input");
     var btn = item.querySelector(".check-btn");
     var mark = item.querySelector(".fib-mark");
+    var keys = item.querySelector(".kk-keys");
     var checkedRight = false;
+
+    /* ряд казахских букв: печатаем с клавиатуры, эти девять жмём на экране */
+    KK_LETTERS.forEach(function (ch) {
+      var k = document.createElement("button");
+      k.className = "kk-key"; k.type = "button"; k.textContent = ch;
+      k.setAttribute("aria-label", "вставить букву " + ch);
+      /* без этого поле теряет фокус и курсор прыгает в конец строки */
+      k.addEventListener("mousedown", function (e) { e.preventDefault(); });
+      k.addEventListener("click", function () {
+        var i = input.selectionStart, j = input.selectionEnd;
+        if (i === null || i === undefined) { i = j = input.value.length; }
+        input.value = input.value.slice(0, i) + ch + input.value.slice(j);
+        input.selectionStart = input.selectionEnd = i + ch.length;
+        input.focus();
+      });
+      keys.appendChild(k);
+    });
+    input.addEventListener("focus", function () { keys.hidden = false; });
+    input.addEventListener("blur", function () { keys.hidden = true; });
+
     function check() {
-      var val = input.value.trim().toLowerCase();
-      var ok = val === s.answer.toLowerCase();
+      var val = input.value.trim().toLowerCase().replace(/\s+/g, " ");
+      var answer = s.answer.toLowerCase();
+      var ok = val === answer;
+      var wrongLetters = ok || !val.length ? null : nearMiss(val, answer);
+      var near = !!wrongLetters;
       input.classList.toggle("correct", ok);
-      input.classList.toggle("incorrect", val.length > 0 && !ok);
+      input.classList.toggle("incorrect", val.length > 0 && !ok && !near);
       if (ok) {
         mark.textContent = "верно!"; mark.className = "fib-mark good-mark";
         if (!checkedRight) { gramCorrectCount++; checkedRight = true; updateGramCounter(); }
+      } else if (near) {
+        mark.textContent = "почти! проверь буквы: " + wrongLetters.join(", ");
+        mark.className = "fib-mark near-mark";
+        if (checkedRight) { gramCorrectCount--; checkedRight = false; updateGramCounter(); }
       } else {
         mark.textContent = "верный ответ: " + s.answer; mark.className = "fib-mark bad-mark";
         if (checkedRight) { gramCorrectCount--; checkedRight = false; updateGramCounter(); }
