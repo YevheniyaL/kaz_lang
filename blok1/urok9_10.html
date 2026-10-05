@@ -115,6 +115,18 @@
   .kk-key:hover { border-color: var(--margin); color: var(--margin); }
   .kk-key:active { transform: translateY(1px); box-shadow: none; }
   .fib-mark.near-mark { color: var(--mark); }
+  /* текст не выделяется — нечего скопировать в поле ответа; в самих полях выделение работает */
+  body { -webkit-user-select: none; user-select: none; }
+  input { -webkit-user-select: text; user-select: text; }
+  .hint-btn { font-family: 'PT Sans', sans-serif; font-size: 13px; background: transparent;
+    color: var(--ink-soft); border: 1px solid var(--rule); border-radius: 5px;
+    padding: 6px 10px; cursor: pointer; }
+  .hint-btn:hover { color: var(--margin); border-color: var(--margin); }
+  .hint-btn[hidden] { display: none; }
+  .hint-text { font-family: 'Caveat', cursive; font-size: 20px; font-weight: 700; color: var(--mark); }
+  .hint-total { margin-top: 22px; padding-top: 10px; border-top: 1px solid var(--rule-soft);
+    font-size: 14px; color: var(--ink-soft); }
+  .hint-total b { font-family: 'Caveat', cursive; font-size: 20px; color: var(--margin); }
   .check-btn { font-family: 'PT Sans', sans-serif; font-size: 13px; background: var(--ink); color: var(--paper);
     border: none; border-radius: 5px; padding: 6px 12px; cursor: pointer; }
   .check-btn:hover { opacity: 0.88; }
@@ -178,9 +190,11 @@
   </section>
   <section class="page" id="fib">
     <p class="lead">Впиши пропущенное слово по-казахски. Подсказка — перевод в скобках.<br>
-      Буквы, которых нет на клавиатуре — ә ғ қ ң ө ұ ү һ і — появятся кнопками под полем, как только в нём окажется курсор. Буква встаёт туда, где курсор.</p>
+      Буквы, которых нет на клавиатуре — ә ғ қ ң ө ұ ү һ і — появятся кнопками под полем, как только в нём окажется курсор. Буква встаёт туда, где курсор.<br>
+      Не вспоминается слово — нажми «подсказка», она покажет две первые буквы. Сколько раз просили подсказку, видно внизу страницы. Вставлять слово нельзя — набирай сам.</p>
     <p class="counter" id="fibCounter">Верно: 0 из 10</p>
     <div id="fibList"></div>
+    <p class="hint-total" id="hintTotal">Подсказок пока не просили</p>
   </section>
   <section class="page" id="gram">
     <p class="lead">Впиши слово с правильным окончанием (тәуелдік жалғауы). Подсказка — слово без окончания и перевод.</p>
@@ -368,6 +382,8 @@
   var fibList = document.getElementById("fibList");
   var fibCounter = document.getElementById("fibCounter");
   var fibCorrectCount = 0;
+  var hintsUsed = 0;
+  var hintTotal = document.getElementById("hintTotal");
   var FTOTAL = SENTENCES.length;
   SENTENCES.forEach(function (s, idx) {
     var item = document.createElement("div");
@@ -379,6 +395,8 @@
       '<div class="fib-row">' +
         '<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false">' +
         '<button class="check-btn" type="button">Проверить</button>' +
+        '<button class="hint-btn" type="button">подсказка</button>' +
+        '<span class="hint-text"></span>' +
         '<span class="fib-mark"></span>' +
       '</div>' +
       '<div class="kk-keys" hidden></div>';
@@ -407,6 +425,20 @@
     input.addEventListener("focus", function () { keys.hidden = false; });
     input.addEventListener("blur", function () { keys.hidden = true; });
 
+    /* подсказка: только две первые буквы, дальше сам */
+    var hintBtn = item.querySelector(".hint-btn");
+    var hintText = item.querySelector(".hint-text");
+    var hintShown = false;
+    hintBtn.addEventListener("click", function () {
+      if (hintShown) { return; }   /* один раз на слово — счётчик не накручивается */
+      hintShown = true;
+      hintText.textContent = "начинается на " + s.answer.slice(0, 2) + "…";
+      hintBtn.hidden = true;
+      hintsUsed++;
+      updateHintTotal();
+      input.focus();
+    });
+
     function check() {
       var val = input.value.trim().toLowerCase().replace(/\s+/g, " ");
       var answer = s.answer.toLowerCase();
@@ -432,6 +464,10 @@
     fibList.appendChild(item);
   });
   function updateFibCounter() { fibCounter.textContent = "Верно: " + fibCorrectCount + " из " + FTOTAL; }
+  function updateHintTotal() {
+    hintTotal.innerHTML = hintsUsed === 0 ? "Подсказок пока не просили"
+      : "Подсказок запрошено: <b>" + hintsUsed + "</b> из " + FTOTAL + " слов";
+  }
 
 
   /* 4. Grammar (fill in the blank) */
@@ -502,6 +538,17 @@
     gramList.appendChild(item);
   });
   function updateGramCounter() { gramCounter.textContent = "Верно: " + gramCorrectCount + " из " + GTOTAL; }
+
+  /* вставка в поля запрещена: слово набирается руками, а не копируется из соседних предложений */
+  function noPaste(e) {
+    if (!e.target || e.target.tagName !== "INPUT") { return; }
+    e.preventDefault();
+    var item = e.target.closest(".fib-item");
+    var mark = item && item.querySelector(".fib-mark");
+    if (mark) { mark.textContent = "вставлять нельзя — набери сам"; mark.className = "fib-mark near-mark"; }
+  }
+  document.addEventListener("paste", noPaste, true);
+  document.addEventListener("drop", noPaste, true);
 
 })();
 </script>
