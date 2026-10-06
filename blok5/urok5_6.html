@@ -449,9 +449,11 @@
       input.focus();
     });
 
+    var wrongTries = 0;   /* правильный ответ показываем только после второй ошибки */
     function check() {
       var val = input.value.trim().toLowerCase().replace(/\s+/g, " ");
       var answer = s.answer.toLowerCase();
+      if (!val.length) { mark.textContent = "сначала впиши слово"; mark.className = "fib-mark near-mark"; return; }
       var ok = val === answer;
       var wrongLetters = ok || !val.length ? null : nearMiss(val, answer);
       var near = !!wrongLetters;
@@ -465,7 +467,10 @@
         mark.className = "fib-mark near-mark";
         if (checkedRight) { fibCorrectCount--; checkedRight = false; updateFibCounter(); }
       } else {
-        mark.textContent = "верный ответ: " + s.answer; mark.className = "fib-mark bad-mark";
+        wrongTries++;
+        mark.textContent = wrongTries >= 2 ? "верный ответ: " + s.answer
+          : "неверно, попробуй ещё" + (item.querySelector(".hint-btn:not([hidden])") ? " или возьми подсказку" : "");
+        mark.className = "fib-mark bad-mark";
         if (checkedRight) { fibCorrectCount--; checkedRight = false; updateFibCounter(); }
       }
     }
