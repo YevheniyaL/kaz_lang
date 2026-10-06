@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Казахский · блок 8 ур. 3–4 · карточки</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🌷</text></svg>">
+<style>
+  body { font-family: 'PT Sans', Arial, sans-serif; color: #222; max-width: 800px; margin: 20px auto; }
+  .instructions { background: #f2f5fa; border: 1px solid #c7d3e3; border-radius: 6px; padding: 14px 18px; font-size: 14px; line-height: 1.6; }
+  .instructions b { color: #1a3a66; }
+  .page-label { font-size: 13px; color: #888; margin: 6px 0 6px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 26mm; border: 1px solid #333; }
+  .grid.p2 { page-break-before: always; margin-top: 20px; }
+  .cell { border: 1px dashed #999; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 5px; font-size: 15px; text-align: center; padding: 4px; }
+  .cell .mark { font-family: 'Consolas', monospace; font-size: 10px; color: #777; letter-spacing: 0.04em; font-weight: normal; }
+  .cell.kk { font-weight: bold; }
+  .cell.blank { border-style: dashed; border-color: #ccc; }
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    /* верхний отступ body (20px) НЕ обнулять: на листе 2 его заменяет
+       padding-top: 20px у .grid.p2 — иначе ряды карточек не совпадут.
+       По той же причине над сеткой не должно быть ничего видимого при печати:
+       метка урока живёт внутри ячейки (.cell .mark), а не в шапке листа. */
+    body { max-width: none; padding: 0; }
+    .instructions { display: none; }
+    .page-label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <p><b>В углу каждой карточки</b> — блок и урок, чтобы разрезанные карточки
+  не смешались с другими уроками.</p>
+  <p><b>Если принтер печатает с двух сторон (дуплекс):</b> в диалоге печати
+  включите "Печать на двух сторонах" / "Two-sided" и переплёт по
+  <b>длинному краю</b>. Тогда слово и перевод сразу окажутся на разных
+  сторонах одной карточки. Разрежьте лист по пунктирным линиям — получится 12 двусторонних карточек.</p>
+  <p><b>Если принтер печатает только с одной стороны:</b> напечатайте
+  первый лист (казахские слова), затем переверните эту же стопку листов и
+  вставьте обратно в лоток, чтобы напечатать второй лист (переводы) на
+  обратной стороне. Направление переворота зависит от принтера — лучше
+  сначала попробовать на одном листе и проверить, совпали ли слово и
+  перевод на одной карточке, прежде чем печатать весь тираж.</p>
+</div>
+
+<p class="page-label">Лист 1 — казахские слова (лицевая сторона)</p>
+<div class="grid">
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>тәуелсіздік нышаны</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>бейнеленген</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>қанатты тұлпар</div>
+
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>қыран</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>уық</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>жол сілтеу</div>
+
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>келешек</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>құрмет</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>ұлықтау рәсімі</div>
+
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>Ту</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>Елтаңба</div>
+  <div class="cell kk"><span class="mark">блок 8 · ур. 3–4</span>Әнұран</div>
+</div>
+
+<p class="page-label">Лист 2 — переводы (обратная сторона, ячейки в каждом ряду зеркальны — для совпадения при печати)</p>
+<div class="grid p2">
+  <div class="cell">крылатый конь</div>
+  <div class="cell">изображён</div>
+  <div class="cell">символ независимости</div>
+
+  <div class="cell">указывать путь</div>
+  <div class="cell">уык (жердь купола юрты)</div>
+  <div class="cell">беркут</div>
+
+  <div class="cell">торжественная церемония</div>
+  <div class="cell">уважение</div>
+  <div class="cell">будущее</div>
+
+  <div class="cell">гимн</div>
+  <div class="cell">герб</div>
+  <div class="cell">флаг</div>
+</div>
+
+</body>
+</html>
