@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Казахский · блок 10 ур. 9–10 · карточки</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🌷</text></svg>">
+<style>
+  body { font-family: 'PT Sans', Arial, sans-serif; color: #222; max-width: 800px; margin: 20px auto; }
+  .instructions { background: #f2f5fa; border: 1px solid #c7d3e3; border-radius: 6px; padding: 14px 18px; font-size: 14px; line-height: 1.6; }
+  .instructions b { color: #1a3a66; }
+  .page-label { font-size: 13px; color: #888; margin: 6px 0 6px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 26mm; border: 1px solid #333; }
+  .grid.p2 { page-break-before: always; margin-top: 20px; }
+  .cell { border: 1px dashed #999; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 5px; font-size: 15px; text-align: center; padding: 4px; }
+  .cell .mark { font-family: 'Consolas', monospace; font-size: 10px; color: #777; letter-spacing: 0.04em; font-weight: normal; }
+  .cell.kk { font-weight: bold; }
+  .cell.blank { border-style: dashed; border-color: #ccc; }
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    /* верхний отступ body (20px) НЕ обнулять: на листе 2 его заменяет
+       padding-top: 20px у .grid.p2 — иначе ряды карточек не совпадут.
+       По той же причине над сеткой не должно быть ничего видимого при печати:
+       метка урока живёт внутри ячейки (.cell .mark), а не в шапке листа. */
+    body { max-width: none; padding: 0; }
+    .instructions { display: none; }
+    .page-label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <p><b>В углу каждой карточки</b> — блок и урок, чтобы разрезанные карточки
+  не смешались с другими уроками.</p>
+  <p><b>Если принтер печатает с двух сторон (дуплекс):</b> в диалоге печати
+  включите "Печать на двух сторонах" / "Two-sided" и переплёт по
+  <b>длинному краю</b>. Тогда слово и перевод сразу окажутся на разных
+  сторонах одной карточки. Разрежьте лист по пунктирным линиям — получится 11 двусторонних карточек.</p>
+  <p><b>Если принтер печатает только с одной стороны:</b> напечатайте
+  первый лист (казахские слова), затем переверните эту же стопку листов и
+  вставьте обратно в лоток, чтобы напечатать второй лист (переводы) на
+  обратной стороне. Направление переворота зависит от принтера — лучше
+  сначала попробовать на одном листе и проверить, совпали ли слово и
+  перевод на одной карточке, прежде чем печатать весь тираж.</p>
+</div>
+
+<p class="page-label">Лист 1 — казахские слова (лицевая сторона)</p>
+<div class="grid">
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>ақпарат үдерісі</div>
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>өңдеу</div>
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>жүйке</div>
+
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>шаршау</div>
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>көшірме</div>
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>ұтымды пайдалану</div>
+
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>көру қабілеті</div>
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>омыртқа</div>
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>тәуелді</div>
+
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>немқұрайды</div>
+  <div class="cell kk"><span class="mark">блок 10 · ур. 9–10</span>мінез</div>
+  <div class="cell blank"></div>
+</div>
+
+<p class="page-label">Лист 2 — переводы (обратная сторона, ячейки в каждом ряду зеркальны — для совпадения при печати)</p>
+<div class="grid p2">
+  <div class="cell">нервы</div>
+  <div class="cell">обрабатывать</div>
+  <div class="cell">информационный процесс</div>
+
+  <div class="cell">использовать с толком</div>
+  <div class="cell">копия</div>
+  <div class="cell">уставать</div>
+
+  <div class="cell">зависимый</div>
+  <div class="cell">позвоночник</div>
+  <div class="cell">зрение</div>
+
+  <div class="cell blank"></div>
+  <div class="cell">характер</div>
+  <div class="cell">равнодушный</div>
+</div>
+
+</body>
+</html>
