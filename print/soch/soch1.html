@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Казахский · СОЧ 1 · карточки</title>
+<link rel="icon" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22><text%20y=%22.9em%22%20font-size=%2290%22>🌷</text></svg>">
+<style>
+  body { font-family: 'PT Sans', Arial, sans-serif; color: #222; max-width: 800px; margin: 20px auto; }
+  .instructions { background: #f2f5fa; border: 1px solid #c7d3e3; border-radius: 6px; padding: 14px 18px; font-size: 14px; line-height: 1.6; }
+  .instructions b { color: #1a3a66; }
+  .page-label { font-size: 13px; color: #888; margin: 6px 0 6px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 26mm; border: 1px solid #333; }
+  .grid.p2 { page-break-before: always; margin-top: 20px; }
+  .cell { border: 1px dashed #999; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 5px; font-size: 15px; text-align: center; padding: 4px; }
+  .cell .mark { font-family: 'Consolas', monospace; font-size: 10px; color: #777; letter-spacing: 0.04em; font-weight: normal; }
+  .cell.kk { font-weight: bold; }
+  .cell.blank { border-style: dashed; border-color: #ccc; }
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    /* верхний отступ body (20px) НЕ обнулять: на листе 2 его заменяет
+       padding-top: 20px у .grid.p2 — иначе ряды карточек не совпадут.
+       По той же причине над сеткой не должно быть ничего видимого при печати:
+       метка урока живёт внутри ячейки (.cell .mark), а не в шапке листа. */
+    body { max-width: none; padding: 0; }
+    .instructions { display: none; }
+    .page-label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <p><b>На каждой карточке</b> — пометка «СОЧ 1», чтобы разрезанные карточки
+  не смешались с карточками уроков.</p>
+  <p><b>Если принтер печатает с двух сторон (дуплекс):</b> в диалоге печати
+  включите "Печать на двух сторонах" / "Two-sided" и переплёт по
+  <b>длинному краю</b>. Разрежьте лист по пунктирным линиям — получится
+  37 двусторонних карточек.</p>
+  <p><b>Если принтер печатает только с одной стороны:</b> напечатайте
+  первый лист (казахские слова), затем переверните стопку и вставьте
+  обратно в лоток, чтобы напечатать второй лист (переводы) на обороте.
+  Сначала попробуйте на одном листе.</p>
+</div>
+
+<p class="page-label">Лист 1 — казахские слова (лицевая сторона)</p>
+<div class="grid">
+  <div class="cell kk"><span class="mark">СОЧ 1</span>дәстүр</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>ерекше</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>үлкендер</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>кішілер</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>құрметтеу</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>сыйлау</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>қамқор</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>қамқор(шы) болу</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>ақыл, кеңес</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>тыңдау</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>кеңес беру</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>жол беру</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>қарсы сөйлемеу</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>сөйлеу</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>сөйлемеу</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>бұрын</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>төр</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>дастарқан басында</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>ата-ана</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>отбасы</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>көмектесу</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>таза ауа</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>алдымен</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>қызықты әңгіме</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>тілек</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>себебі</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>әдепсіздік</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>белгі</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>ас ішу</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>бата</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>бата беру</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>көркем</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>қысқа</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>мәні терең</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>күш</div>
+  <div class="cell kk"><span class="mark">СОЧ 1</span>жолын ашу</div>
+
+  <div class="cell kk"><span class="mark">СОЧ 1</span>сақтау</div>
+  <div class="cell blank"></div>
+  <div class="cell blank"></div>
+  <div class="cell blank"></div>
+</div>
+
+<p class="page-label">Лист 2 — переводы (оборот; в каждом ряду порядок зеркальный)</p>
+<div class="grid p2">
+  <div class="cell">младшие</div>
+  <div class="cell">старшие, взрослые</div>
+  <div class="cell">особо, особая</div>
+  <div class="cell">традиция</div>
+
+  <div class="cell">заботиться</div>
+  <div class="cell">забота</div>
+  <div class="cell">уважать, почитать</div>
+  <div class="cell">почитать, уважать</div>
+
+  <div class="cell">уступить дорогу</div>
+  <div class="cell">дать совет</div>
+  <div class="cell">слушать</div>
+  <div class="cell">совет</div>
+
+  <div class="cell">раньше</div>
+  <div class="cell">не говорить</div>
+  <div class="cell">говорить</div>
+  <div class="cell">не возражать, не спорить</div>
+
+  <div class="cell">семья</div>
+  <div class="cell">родители</div>
+  <div class="cell">за столом</div>
+  <div class="cell">почётное место (верхняя часть гостиной)</div>
+
+  <div class="cell">интересный рассказ</div>
+  <div class="cell">сначала, в первую очередь</div>
+  <div class="cell">чистый воздух</div>
+  <div class="cell">помогать</div>
+
+  <div class="cell">признак, знак</div>
+  <div class="cell">невоспитанность, невежливость</div>
+  <div class="cell">потому что</div>
+  <div class="cell">пожелание</div>
+
+  <div class="cell">красивый, образный (о речи)</div>
+  <div class="cell">благословлять, дать благословение</div>
+  <div class="cell">благословение</div>
+  <div class="cell">поесть</div>
+
+  <div class="cell">открыть путь, принести удачу</div>
+  <div class="cell">сила</div>
+  <div class="cell">глубокий по смыслу</div>
+  <div class="cell">короткий</div>
+
+  <div class="cell blank"></div>
+  <div class="cell blank"></div>
+  <div class="cell blank"></div>
+  <div class="cell">хранить, сохранять</div>
+</div>
+
+</body>
+</html>
